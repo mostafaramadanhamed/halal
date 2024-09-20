@@ -1,0 +1,41 @@
+{
+    "Country": "Country",
+    "Not Connected": "Not Connected",
+    "Free": "Free",
+    "PING":"PING",
+    "Download": "Download",
+    "Upload": "Upload",
+    "Tap to Connect": "Tap to Connect",
+    "  Disconnect   ": "  Disconnect   ",
+    "  Connecting...": "  Connecting...",
+    "IP Address Details": "IP Address Details",
+    "IP Address": "IP Address",
+    "Loading...": "Loading...",
+    "Internet Provider": "Internet Provider",
+    "Fetching ...": "Fetching ...",
+    "Location": "Location",
+    "Pin-code": "Pin-code",
+    "Timezone": "Timezone",
+    "Loading Servers ....": "Loading Servers ....",
+    " Sorry ,VPNs Not Found! 😥": " Sorry ,VPNs Not Found! 😥",
+    "connected": "connected",
+   "disconnected": "disconnected",
+  "wait_connection": "wait_connection",
+    "authenticating": "authenticating",
+    "reconnect": "reconnect",
+    "no_connection":  "no_connection",
+   "connecting": "connecting",
+    "prepare": "prepare",
+   "denied": "denied",
+    "Settings": "Settings",
+    "IP Details": "IP Details",
+    "Server List": "Server List",
+    "Share App": "Share App",
+    "Rate Us": "Rate Us",
+    "Communicate": "Communicate",
+    "Submit": "submit"
+  
+  
+  
+  
+  }
