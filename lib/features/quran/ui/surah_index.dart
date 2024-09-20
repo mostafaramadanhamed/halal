@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:halal/core/helpers/spacing_extensions.dart';
 import 'package:halal/features/quran/data/load_json_data.dart';
 import 'package:halal/features/quran/domain/verse_bookmark.dart';
+import 'package:halal/features/quran/ui/widgets/surah_index_item.dart';
 import 'package:halal/features/quran/ui/widgets/verse_shape.dart';
 
+import '../../../core/theme/styles.dart';
 import '../../../core/utils/constants.dart';
 import '../data/surah_list.dart';
 import 'widgets/surah_builder.dart';
@@ -24,6 +27,8 @@ class _SurahIndexState extends State<SurahIndex> {
         onPressed: () async {
           Constants.fabIsTaped = true;
           if (await VerseBookmarkController.readBookmark() == true) {
+            if (!context.mounted) return;
+
             Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -45,96 +50,39 @@ class _SurahIndexState extends State<SurahIndex> {
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterFloat,
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          //"القرآن",
-          "Quran",
-          style: TextStyle(
-              //fontFamily: 'quran',
-              fontSize: 35,
-              fontWeight: FontWeight.bold,
-              shadows: [
-                Shadow(
-                  offset: Offset(1, 1),
-                  blurRadius: 2.0,
-                  color: Color.fromARGB(255, 0, 0, 0),
-                ),
-              ]),
-        ),
-        backgroundColor: const Color.fromARGB(255, 56, 115, 59),
-      ),
-      body: FutureBuilder(
-        future: QuranDataController.readJson(),
-        builder: (
-          BuildContext context,
-          AsyncSnapshot snapshot,
-        ) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.connectionState == ConnectionState.done) {
-            if (snapshot.hasError) {
-              return const Text('Error');
-            } else if (snapshot.hasData) {
-              return indexCreator(snapshot.data, context);
-            } else {
-              return const Text('Empty data');
-            }
-          } else {
-            return Text('State: ${snapshot.connectionState}');
-          }
-        },
-      ),
-    );
-  }
-
-  Container indexCreator(quran, context) {
-    return Container(
-      color: const Color.fromARGB(255, 221, 250, 236),
-      child: ListView(
+      body: Column(
         children: [
-          for (int i = 0; i < 114; i++)
-            Container(
-              color: i % 2 == 0
-                  ? const Color.fromARGB(255, 253, 247, 230)
-                  : const Color.fromARGB(255, 253, 251, 240),
-              child: TextButton(
-                child: Row(
-                  children: [
-                    Text(
-                      surahList[i]['name'],
-                      style: const TextStyle(
-                          fontSize: 30,
-                          color: Colors.black87,
-                          shadows: [
-                            Shadow(
-                              offset: Offset(.5, .5),
-                              blurRadius: 1.0,
-                              color: Color.fromARGB(255, 130, 130, 130),
-                            )
-                          ]),
-                      // textDirection: TextDirection.rtl,
-                    ),
-                    const Expanded(child: SizedBox()),
-                    VerseShape(verseNumber: i),
-                  ],
-                ),
-                onPressed: () {
-                  Constants.fabIsTaped = false;
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => SurahBuilder(
-                              content: quran[0],
-                              surahId: i,
-                              surahName: surahList[i]['name'],
-                              surahLength: surahList[i]['total_verses'],
-                              verseId: 0,
-                            )),
-                  );
-                },
+          30.ph,
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                '\uFD3F                الفهرس              \uFD3E',
+                style: TextStyles.font20BlackMeduim,
               ),
-            ),
+            ],
+          ),
+          FutureBuilder(
+            future: QuranDataController.readJson(),
+            builder: (
+              BuildContext context,
+              AsyncSnapshot snapshot,
+            ) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              } else if (snapshot.connectionState == ConnectionState.done) {
+                if (snapshot.hasError) {
+                  return const Text('Error');
+                } else if (snapshot.hasData) {
+                  return SurahIndexItem(quran: snapshot.data);
+                } else {
+                  return const Text('Empty data');
+                }
+              } else {
+                return Text('State: ${snapshot.connectionState}');
+              }
+            },
+          ),
         ],
       ),
     );
