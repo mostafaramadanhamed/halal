@@ -24,7 +24,7 @@ class _SettingsState extends State<SettingsScreen> {
             "الاعدادات",
             style: TextStyles.indexTextStyle,
           ),
-          backgroundColor: const Color.fromARGB(168, 188, 187, 187),
+          backgroundColor:AppColors.kAppbarColor,
           centerTitle: true,
         ),
         body: SafeArea(

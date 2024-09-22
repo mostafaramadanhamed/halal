@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:halal/core/theme/colors.dart';
 import 'package:halal/core/theme/styles.dart';
 import 'package:halal/core/utils/constants.dart';
 import 'package:halal/features/quran/data/surah_list.dart';
@@ -108,7 +109,7 @@ class _SurahBuilderState extends State<SurahBuilder> {
           textAlign: TextAlign.center,
           style: TextStyles.font32BlackBold,
         ),
-        backgroundColor: const Color.fromARGB(168, 188, 187, 187),
+        backgroundColor: AppColors.kAppbarColor,
       ),
       body: singleSurahBuilder(widget.surahLength),
     );
