@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:halal/core/helpers/spacing_extensions.dart';
+import 'package:halal/core/theme/colors.dart';
 import 'package:halal/features/quran/data/load_json_data.dart';
 import 'package:halal/features/quran/domain/verse_bookmark.dart';
-import 'package:halal/features/quran/ui/widgets/surah_index_item.dart';
+import 'package:halal/features/quran/ui/widgets/surah_index_list_view.dart';
 import 'package:halal/features/quran/ui/widgets/verse_shape.dart';
 
 import '../../../core/theme/styles.dart';
@@ -21,6 +23,19 @@ class _SurahIndexState extends State<SurahIndex> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title:  Text(
+          'الفهرس',
+          style: TextStyles.font30BlackMeduim,
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.search),
+          )
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Go to bookmark',
         backgroundColor: const Color.fromARGB(255, 43, 134, 208),
@@ -50,40 +65,26 @@ class _SurahIndexState extends State<SurahIndex> {
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterFloat,
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
-      body: Column(
-        children: [
-          30.ph,
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                '\uFD3F                الفهرس              \uFD3E',
-                style: TextStyles.font20BlackMeduim,
-              ),
-            ],
-          ),
-          FutureBuilder(
-            future: QuranDataController.readJson(),
-            builder: (
-              BuildContext context,
-              AsyncSnapshot snapshot,
-            ) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(child: CircularProgressIndicator());
-              } else if (snapshot.connectionState == ConnectionState.done) {
-                if (snapshot.hasError) {
-                  return const Text('Error');
-                } else if (snapshot.hasData) {
-                  return SurahIndexItem(quran: snapshot.data);
-                } else {
-                  return const Text('Empty data');
-                }
-              } else {
-                return Text('State: ${snapshot.connectionState}');
-              }
-            },
-          ),
-        ],
+      body: FutureBuilder(
+        future: QuranDataController.readJson(),
+        builder: (
+          BuildContext context,
+          AsyncSnapshot snapshot,
+        ) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return const Text('Error');
+            } else if (snapshot.hasData) {
+              return SurahIndexListView(quran: snapshot.data);
+            } else {
+              return const Text('Empty data');
+            }
+          } else {
+            return Text('State: ${snapshot.connectionState}');
+          }
+        },
       ),
     );
   }
