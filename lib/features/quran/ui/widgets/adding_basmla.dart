@@ -7,14 +7,11 @@ class AddingBasmala extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Stack(children: [
-      Center(
-        child: Text(
-          '‏ ‏‏ ‏‏‏‏ ‏‏‏‏‏‏ ',
-          style: TextStyles.basmlaTextStyle,
-          //   textDirection: TextDirection.rtl,
-        ),
+    return Center(
+      child: Text(
+        '‏ ‏‏ ‏‏‏‏ ‏‏‏‏‏‏ ',
+        style: TextStyles.basmlaTextStyle,
       ),
-    ]);
+    );
   }
 }

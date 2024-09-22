@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:halal/core/theme/styles.dart';
@@ -47,7 +46,7 @@ class _SurahBuilderState extends State<SurahBuilder> {
 
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) => jumbToVerse());
+    WidgetsBinding.instance.addPostFrameCallback((_) => jumbToVerse());
     super.initState();
   }
 
@@ -62,18 +61,15 @@ class _SurahBuilderState extends State<SurahBuilder> {
     if (widget.surahId + 1 != 1) {
       for (int i = widget.surahId - 1; i >= 0; i--) {
         previousVerses =
-            previousVerses + surahList[i]['total_verses'];
-        //print(widget.surahLength);
-       // print(widget.content[1]['aya_text_emlaey']);
+            previousVerses + surahList[i]['total_verses'];    
       }
     }
 
-    if (viewed)
+    if (viewed){
       for (int i = 0; i < surahLength; i++) {
         fullSurah += (widget.content[i + previousVerses]['aya_text']);
-     //   print("object1 ${widget.content[0]['aya_text_emlaey']}");
       }
-
+}
     return SafeArea(
       child: Container(
         color: const Color.fromARGB(255, 253, 251, 240),
@@ -115,7 +111,7 @@ class _SurahBuilderState extends State<SurahBuilder> {
           textAlign: TextAlign.center,
           style: TextStyles.verseTextStyle,
         ),
-        backgroundColor: const Color.fromARGB(255, 56, 115, 59),
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       ),
       body: singleSurahBuilder(widget.surahLength),
     );

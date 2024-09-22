@@ -15,7 +15,7 @@ class VerseShape extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       "\uFD3F${(verseNumber + 1).toString().toArabicNumbers}\uFD3E",
-      style: TextStyles.font20BlackMeduim,
+      style: TextStyles.font30BlackMeduim,
     );
   }
 }
