@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:halal/core/helpers/spacing_extensions.dart';
 import 'package:halal/features/quran/domain/verse_bookmark.dart';
+import 'package:halal/features/quran/ui/surah_index.dart';
 import 'package:halal/features/quran/ui/widgets/adding_basmla.dart';
 import 'package:halal/features/quran/ui/widgets/verse_builder.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
@@ -28,57 +31,60 @@ class VerseByVerseView extends StatelessWidget {
           children: [
             (index != 0) || (surahId == 0) || (surahId == 8)
                 ? const Text('')
-                : const AddingBasmala(),
-            Container(
-              color: index % 2 != 0
-                  ? const Color.fromARGB(255, 85, 168, 106)
-                  : const Color.fromARGB(255, 61, 47, 9),
-              child: PopupMenuButton(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: VerseBuilder(
-                      currentIndex: index,
-                      previousIndex: previousIndex,
-                      content: content,
-                    ),
+                : Column(
+                    children: [
+                      const AddingBasmala(),
+                      16.ph,
+                    ],
                   ),
-                  itemBuilder: (context) => [
-                        PopupMenuItem(
-                          onTap: () {
-                            VerseBookmarkController.bookmarkVerse(
-                                surahId + 1, index);
-                          },
-                          child: const Row(
-                            children: [
-                              Icon(
-                                Icons.bookmark_add,
-                                color: Color.fromARGB(255, 56, 115, 59),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text('Bookmark'),
-                            ],
-                          ),
+            PopupMenuButton(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 8.0.h,
+                    horizontal: 12.w,
+                  ),
+                  child: VerseBuilder(
+                    currentIndex: index,
+                    previousIndex: previousIndex,
+                    content: content,
+                  ),
+                ),
+                itemBuilder: (context) => [
+                      PopupMenuItem(
+                        onTap: () {
+                          VerseBookmarkController.bookmarkVerse(
+                              surahId + 1, index);
+                        },
+                        child: const Row(
+                          children: [
+                            Icon(
+                              Icons.bookmark_add,
+                              color: Color.fromARGB(255, 56, 115, 59),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text('حفظ'),
+                          ],
                         ),
-                        PopupMenuItem(
-                          onTap: () {},
-                          child: const Row(
-                            //mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Icon(
-                                Icons.share,
-                                color: Color.fromARGB(255, 56, 115, 59),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text('Share'),
-                            ],
-                          ),
+                      ),
+                      PopupMenuItem(
+                        onTap: () {},
+                        child: const Row(
+                          //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Icon(
+                              Icons.share,
+                              color: Color.fromARGB(255, 56, 115, 59),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text('مشاركة'),
+                          ],
                         ),
-                      ]),
-            ),
+                      ),
+                    ]),
           ],
         );
       },

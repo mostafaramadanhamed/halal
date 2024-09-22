@@ -10,7 +10,7 @@ import 'package:halal/features/quran/ui/widgets/verse_shape.dart';
 import '../../../core/theme/styles.dart';
 import '../../../core/utils/constants.dart';
 import '../data/surah_list.dart';
-import 'widgets/surah_builder.dart';
+import 'surah_builder.dart';
 
 class SurahIndex extends StatefulWidget {
   const SurahIndex({Key? key}) : super(key: key);

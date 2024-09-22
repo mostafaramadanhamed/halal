@@ -6,7 +6,7 @@ import '../../../../core/theme/styles.dart';
 import '../../../../core/utils/constants.dart';
 import '../../data/surah_list.dart';
 import 'meccan_or_median_surah.dart';
-import 'surah_builder.dart';
+import '../surah_builder.dart';
 
 class SurahIndexItem extends StatelessWidget {
   const SurahIndexItem({

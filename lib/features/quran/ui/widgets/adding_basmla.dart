@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:halal/features/settings/data/settings_constants.dart';
 
 import '../../../../core/theme/styles.dart';
 
@@ -10,7 +11,9 @@ class AddingBasmala extends StatelessWidget {
     return Center(
       child: Text(
         '‏ ‏‏ ‏‏‏‏ ‏‏‏‏‏‏ ',
-        style: TextStyles.basmlaTextStyle,
+        style: TextStyles.basmlaTextStyle.copyWith(
+          fontSize: SettingsConstants.arabicDefaultFontSize,
+        ),
       ),
     );
   }
