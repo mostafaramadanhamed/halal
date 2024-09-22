@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:halal/core/theme/styles.dart';
 import 'package:halal/core/utils/constants.dart';
 import 'package:halal/features/quran/data/surah_list.dart';
@@ -60,29 +60,25 @@ class _SurahBuilderState extends State<SurahBuilder> {
     num previousVerses = 0;
     if (widget.surahId + 1 != 1) {
       for (int i = widget.surahId - 1; i >= 0; i--) {
-        previousVerses =
-            previousVerses + surahList[i]['total_verses'];    
+        previousVerses = previousVerses + surahList[i]['total_verses'];
       }
     }
 
-    if (viewed){
+    if (viewed) {
       for (int i = 0; i < surahLength; i++) {
         fullSurah += (widget.content[i + previousVerses]['aya_text']);
       }
-}
+    }
     return SafeArea(
-      child: Container(
-        color: const Color.fromARGB(255, 253, 251, 240),
-        child: viewed
-            ? VersesListView(fullSurah: fullSurah, surahId: widget.surahId)
-            : VerseByVerseView(
-                surahId: widget.surahId,
-                previousIndex: previousVerses,
-                content: widget.content,
-                surahLength: surahLength,
-                itemScrollController: itemScrollController,
-                itemPositionsListener: itemPositionsListener),
-      ),
+      child: viewed
+          ? VersesListView(fullSurah: fullSurah, surahId: widget.surahId)
+          : VerseByVerseView(
+              surahId: widget.surahId,
+              previousIndex: previousVerses,
+              content: widget.content,
+              surahLength: surahLength,
+              itemScrollController: itemScrollController,
+              itemPositionsListener: itemPositionsListener),
     );
   }
 
@@ -90,6 +86,7 @@ class _SurahBuilderState extends State<SurahBuilder> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 72.h,
         leading: Tooltip(
           message: 'Mushaf Mode',
           child: TextButton(
@@ -109,9 +106,9 @@ class _SurahBuilderState extends State<SurahBuilder> {
           // widget.
           widget.surahName,
           textAlign: TextAlign.center,
-          style: TextStyles.verseTextStyle,
+          style: TextStyles.font32BlackBold,
         ),
-        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+        backgroundColor: const Color.fromARGB(168, 188, 187, 187),
       ),
       body: singleSurahBuilder(widget.surahLength),
     );

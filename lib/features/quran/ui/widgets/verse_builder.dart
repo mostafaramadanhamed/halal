@@ -6,31 +6,23 @@ class VerseBuilder extends StatelessWidget {
   final num previousIndex;
   final dynamic content;
   const VerseBuilder(
-      {super.key, required this.currentIndex, required this.previousIndex, this.content});
+      {super.key,
+      required this.currentIndex,
+      required this.previousIndex,
+      this.content});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                content[currentIndex + previousIndex]['aya_text'],
-                style: TextStyle(
-                  fontSize: SettingsConstants.arabicDefaultFontSize,
-                  color: const Color.fromARGB(196, 0, 0, 0),
-                ),
-              ),
-              const Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [],
-              ),
-            ],
-          ),
+    return Align(
+      alignment: Alignment.centerRight,
+      child: Text(
+        content[currentIndex + previousIndex]['aya_text'],
+        style: TextStyle(
+          fontSize: SettingsConstants.arabicDefaultFontSize,
+          fontWeight: FontWeight.bold,
+          color: const Color.fromARGB(196, 0, 0, 0),
         ),
-      ],
+      ),
     );
   }
 }
