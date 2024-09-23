@@ -32,6 +32,11 @@ class TextStyles {
     fontFamily: 'me_quran',
     color: Colors.black,
     fontWeight: FontWeight.w500,
+  );static TextStyle font16BlackBold = TextStyle(
+    fontSize: 16.sp,
+    fontFamily: 'Vazirmatn',
+    color: Colors.black,
+    fontWeight: FontWeight.bold,
   );
   static TextStyle indexTextStyle = TextStyle(
       fontSize: SettingsConstants.arabicDefaultFontSize.sp,
