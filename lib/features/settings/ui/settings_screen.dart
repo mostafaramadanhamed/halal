@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:halal/core/theme/colors.dart';
 import 'package:halal/core/theme/styles.dart';
-import 'package:halal/core/utils/constants.dart';
-
 import '../data/settings_constants.dart';
 import '../domain/settings.dart';
 import 'widgets/app_text_button.dart';
@@ -17,8 +15,13 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Padding(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('الإعدادات'),
+        centerTitle: true,
+        backgroundColor: AppColors.kAppbarColor,
+      ),
+      body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
           child: Column(
@@ -29,7 +32,7 @@ class _SettingsState extends State<SettingsScreen> {
                 inactiveColor: AppColors.kPrimaryColor,
                 value: SettingsConstants.arabicDefaultFontSize,
                 min: 20,
-                max: 40,
+                max: 35,
                 onChanged: (value) {
                   setState(() {
                     SettingsConstants.arabicDefaultFontSize = value;
@@ -85,10 +88,8 @@ class _SettingsState extends State<SettingsScreen> {
                   AppTextButton(
                     onPressed: () {
                       Settings.saveSettings();
-                      print(Constants.currentIndex);
-                      Constants.currentIndex = 0;
-                      print(Constants.currentIndex);
-
+                      // todo add snackbar
+                      Navigator.pop(context);
                       setState(() {});
                     },
                     textButton: 'حفظ',
@@ -102,4 +103,3 @@ class _SettingsState extends State<SettingsScreen> {
     );
   }
 }
-

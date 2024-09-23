@@ -33,7 +33,7 @@ class VersesListView extends StatelessWidget {
                       fullSurah, //mushaf mode
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: SettingsConstants.arabicDefaultFontSize,
+                        fontSize: SettingsConstants.mus7afDefaultFontSize,
                         fontWeight: FontWeight.w600,
                         color: const Color.fromARGB(196, 14, 13, 13),
                       ),

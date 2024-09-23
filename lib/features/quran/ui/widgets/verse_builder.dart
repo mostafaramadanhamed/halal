@@ -18,7 +18,7 @@ class VerseBuilder extends StatelessWidget {
       child: Text(
         content[currentIndex + previousIndex]['aya_text'],
         style: TextStyle(
-          fontSize: SettingsConstants.arabicDefaultFontSize,
+          fontSize: SettingsConstants.mus7afDefaultFontSize,
           fontWeight: FontWeight.bold,
           color: const Color.fromARGB(196, 0, 0, 0),
         ),

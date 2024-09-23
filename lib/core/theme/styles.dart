@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:halal/core/theme/colors.dart';
+import 'package:halal/features/settings/data/settings_constants.dart';
 
 class TextStyles {
   static TextStyle font30BlackMeduim = TextStyle(
@@ -33,7 +34,7 @@ class TextStyles {
     fontWeight: FontWeight.w500,
   );
   static TextStyle indexTextStyle = TextStyle(
-      fontSize: 25.sp,
+      fontSize: SettingsConstants.arabicDefaultFontSize.sp,
       fontFamily: 'Vazirmatn',
       color: Colors.black,
       fontWeight: FontWeight.w500,
