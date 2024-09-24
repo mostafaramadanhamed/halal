@@ -8,15 +8,15 @@ class Seb7aTopShape extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   Container(
-          height: 50.h,
-          width: 240.w,
-          decoration: BoxDecoration(
-              color: const Color.fromARGB(154, 193, 13, 157),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(55.r),
-                topRight: Radius.circular(55.r),
-              )),
-        );
+    return Container(
+      height: 50.h,
+      width: 230.w,
+      decoration: BoxDecoration(
+          color: AppColors.kSeb7aColor,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(55.r),
+            topRight: Radius.circular(55.r),
+          )),
+    );
   }
 }

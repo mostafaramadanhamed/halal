@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:halal/core/theme/colors.dart';
 
 import '../../logic/cubit.dart';
 
@@ -8,10 +9,10 @@ class ResetCounterButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
         onTap: () => context.read<CounterCubit>().reset(),
         child: const CircleAvatar(
-          backgroundColor: Color.fromARGB(255, 99, 0, 87),
+          backgroundColor: AppColors.kPrimaryColor,
         ));
   }
 }

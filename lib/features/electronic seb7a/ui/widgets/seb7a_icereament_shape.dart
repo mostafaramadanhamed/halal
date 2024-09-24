@@ -13,12 +13,12 @@ class Seb7aIcereamentShape extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 140.h,
-      width: 240.w,
+      width: 230.w,
       decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 248, 105, 255),
+          color: AppColors.kSeb7aColor,
           borderRadius: BorderRadius.only(
-            topRight: Radius.circular(16.r),
-            topLeft: Radius.circular(16.r),
+            topRight: Radius.circular(32.r),
+            topLeft: Radius.circular(32.r),
             bottomLeft: Radius.circular(55.r),
             bottomRight: Radius.circular(55.r),
           )),
@@ -33,6 +33,5 @@ class Seb7aIcereamentShape extends StatelessWidget {
         ],
       ),
     );
-    
   }
 }
