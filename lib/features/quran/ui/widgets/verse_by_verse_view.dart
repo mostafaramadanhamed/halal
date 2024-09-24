@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:halal/core/helpers/spacing_extensions.dart';
 import 'package:halal/features/quran/domain/verse_bookmark.dart';
-import 'package:halal/features/quran/ui/surah_index.dart';
 import 'package:halal/features/quran/ui/widgets/adding_basmla.dart';
 import 'package:halal/features/quran/ui/widgets/verse_builder.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
