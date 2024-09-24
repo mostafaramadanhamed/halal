@@ -32,7 +32,8 @@ class TextStyles {
     fontFamily: 'me_quran',
     color: Colors.black,
     fontWeight: FontWeight.w500,
-  );static TextStyle font16BlackBold = TextStyle(
+  );
+  static TextStyle font16BlackBold = TextStyle(
     fontSize: 16.sp,
     fontFamily: 'Vazirmatn',
     color: Colors.black,
@@ -89,4 +90,16 @@ class TextStyles {
           color: Color.fromARGB(255, 0, 0, 0),
         ),
       ]);
+
+  static TextStyle azkarTitleTextStyle = TextStyle(
+    fontSize: 22.sp,
+    fontFamily: 'Vazirmatn',
+    fontWeight: FontWeight.bold,
+    color: AppColors.kAzkarTitleColor,
+  ); static TextStyle azkarSubtitleTextStyle = TextStyle(
+    fontSize: 20.sp,
+    fontFamily: 'Vazirmatn',
+    fontWeight: FontWeight.w500,
+    color: AppColors.kAzkarTitleColor,
+  );
 }
