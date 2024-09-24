@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:halal/core/utils/constants.dart';
+import 'package:halal/features/azkar/ui/azkar_screen.dart';
 import 'package:halal/features/electronic%20seb7a/ui/electronic_seb7a_screen.dart';
 import 'package:halal/features/quran/ui/surah_index.dart';
 import '../../../core/theme/colors.dart';
@@ -20,7 +21,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _screens = [
     const SurahIndex(),
-    const Text('Quran'),
+    const AzkarScreen(),
     BlocProvider(
        create: (_) => CounterCubit(),
       child: const ElectronicSeb7aScreen()),

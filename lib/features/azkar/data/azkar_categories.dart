@@ -2,7 +2,7 @@ import 'package:halal/features/azkar/data/azkar_data.dart';
 
 List<Map<String, dynamic>> azkarCategories = [
   {
-    "title":"أذكار الصباح والمساء",
+    "title":"أذكار الصباح و المساء",
     "total":1,
     "data":azkarAlsaba7,
   },
