@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:halal/core/theme/styles.dart';
+import 'package:halal/features/azkar/ui/azkar_details_screen.dart';
 
 import '../../../../core/theme/colors.dart';
 
@@ -26,7 +27,16 @@ class AzkarItemData extends StatelessWidget {
         title,
         style: TextStyles.azkarSubtitleTextStyle,
       ),
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => AzkarDetailsScreen(
+                    azkarDetails: detailedAzkar,
+                    title: title,
+                  ))
+        );
+      },
     );
   }
 }
