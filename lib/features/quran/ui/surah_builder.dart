@@ -47,8 +47,7 @@ class SurahBuilder extends StatelessWidget{
         elevation: 0,
         centerTitle: true,
         title: Text(
-          // 
-          surahName,
+                   surahName,
           textAlign: TextAlign.center,
           style: TextStyles.font32BlackBold,
         ),
