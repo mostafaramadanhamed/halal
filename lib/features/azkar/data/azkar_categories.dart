@@ -2,23 +2,43 @@ import 'package:halal/features/azkar/data/azkar_data.dart';
 
 List<Map<String, dynamic>> azkarCategories = [
   {
-    "title":"أذكار الصباح و المساء",
-    "total":1,
+    "title":" الصباح و المساء",
+ 
     "data":azkarAlsaba7,
   },
   {
-    "title":"أذكار النوم",
-    "total":2,
+    "title":" النوم",
+ 
     "data":azkarSleeping,
   },
   {
-    "title":"أذكار الوضوء",
-    "total":2,
+    "title":" الوضوء",
+ 
     "data":azkarAblution,
   },
   {
-    "title":"أذكار الصلاة",
-    "total":1,
+    "title":" الصلاة",
+ 
     "data":azkarPrayer,
   },
+  {
+  "title":" المنزل",
+ 
+    "data":azkarHome,
+  },
+  {
+    "title":"المسجد",
+ 
+    "data":azkarMasjid,
+  },
+  {
+    "title":"الاذآن",
+ 
+    "data":azkarAdhan,
+  },
+  {
+    "title":"الثوب",
+ 
+    "data":azkarClothing,
+  }
 ];
