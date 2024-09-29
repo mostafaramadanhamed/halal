@@ -8,25 +8,13 @@ class TextStyles {
       fontSize: 30.sp,
       fontFamily: 'me_quran',
       color: Colors.black,
-      shadows: const [
-        Shadow(
-          color: Color.fromARGB(255, 255, 229, 137),
-          offset: Offset(0.5, 0.5),
-          blurRadius: 1,
-        ),
-      ]);
+    );
   static TextStyle font32BlackBold = TextStyle(
       fontSize: 32.sp,
       fontFamily: 'Vazirmatn',
       color: Colors.black,
       fontWeight: FontWeight.bold,
-      shadows: const [
-        Shadow(
-          color: Color.fromARGB(255, 118, 118, 118),
-          offset: Offset(0.7, 0.6),
-          blurRadius: 2,
-        ),
-      ]);
+     );
   static TextStyle font25BlackMeduim = TextStyle(
     fontSize: 25.sp,
     fontFamily: 'me_quran',
