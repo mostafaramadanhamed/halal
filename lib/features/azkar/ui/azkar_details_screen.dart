@@ -49,7 +49,9 @@ class AzkarDetailsScreen extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    '${azkarDetails[index]['count']} ${azkarDetails[index]['count'] > 1 ? 'مرات' : 'مرة'}',
+                     '${azkarDetails[index]['count']} ${azkarDetails[index]['count'] > 2
+                     &&azkarDetails[index]['count'] <10 ? 'مرات' 
+                     : 'مرة'}',
                     style: TextStyles.azkarSubtitleTextStyle
                         .copyWith(color: AppColors.kAzkarTitleColor),
                   ),
