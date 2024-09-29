@@ -36,54 +36,17 @@ class VerseByVerseView extends StatelessWidget {
                       16.ph,
                     ],
                   ),
-            PopupMenuButton(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: 8.0.h,
-                    horizontal: 12.w,
-                  ),
-                  child: VerseBuilder(
-                    currentIndex: index,
-                    previousIndex: previousIndex,
-                    content: content,
-                  ),
-                ),
-                itemBuilder: (context) => [
-                      PopupMenuItem(
-                        onTap: () {
-                          VerseBookmarkController.bookmarkVerse(
-                              surahId + 1, index);
-                        },
-                        child: const Row(
-                          children: [
-                            Icon(
-                              Icons.bookmark_add,
-                              color: Color.fromARGB(255, 56, 115, 59),
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text('حفظ'),
-                          ],
-                        ),
-                      ),
-                      PopupMenuItem(
-                        onTap: () {},
-                        child: const Row(
-                          //mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Icon(
-                              Icons.share,
-                              color: Color.fromARGB(255, 56, 115, 59),
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text('مشاركة'),
-                          ],
-                        ),
-                      ),
-                    ]),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: 8.0.h,
+                horizontal: 12.w,
+              ),
+              child: VerseBuilder(
+                currentIndex: index,
+                previousIndex: previousIndex,
+                content: content,
+              ),
+            ),
           ],
         );
       },
